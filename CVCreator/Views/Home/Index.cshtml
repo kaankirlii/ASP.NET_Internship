@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Create Your CV";
+}
+<style>
+    #Text1, #Text2, #Text3, #Text4,
+    #Text5, #Text6, #Text7, #Text8,
+    #Text9, #Text10, #Text11, #Text12,
+    #Text13 {
+        border:3px solid black;
+        color:mediumblue;
+        font-family:Arial;
+    }
+</style>        
+<form action="CV" method="post">
+    <div align="center" style="background-color:red;color:white">
+        <h1 style="font: bold 50px arial">Welcome to CV Creator</h1>
+    </div>
+    <div class="row">
+        <div align="center" style="background-color:blue">
+            <h3 style="color:white">Personal and Contact Information</h3>
+            <input id="Text1" type="text" name="NameSurname" placeholder="Name and Surname" /><br>
+            <input id="Text2" type="text" name="Phone" placeholder="Phone" /><br>
+            <input id="Text3" type="text" name="EMail" placeholder="E-Mail" /><br>
+        </div>
+        <div align="center" style="background-color:green">
+            <h3 style="color:white">Experience</h3>
+            <input id="Text4" type="text" name="ExperienceYear" placeholder="Start MM//YY- End MM/YY"/>
+            <input id="Text5" type="text" name="Experience" placeholder="Experience" />
+            <h3 style="color:white">Education</h3>
+            <input id="Text6" type="text" name="EducationYear" placeholder="Start MM//YY- End MM/YY"/>
+            <input id="Text7" type="text" name="Education" placeholder="Education" />
+            <h3 style="color:white">Project</h3>
+            <input id="Text8" type="text" name="ProjectYear" placeholder="Start MM//YY- End MM/YY" />
+            <input id="Text9" type="text" name="Project" placeholder="Project" />
+            <h3 style="color:white">Skill</h3>
+            <input id="Text10" type="text" name="Skill" placeholder="Skill" />
+            <input id="Text11" type="text" name="Level" placeholder="Level" />
+            <h3 style="color:white">Certificate</h3>
+            <input id="Text12" type="text" name="CertificateYear" placeholder="Month/Year" />
+            <input id="Text13" type="text" name="Certificate" placeholder="Certificate" />
+        </div>
+        <div align="center">
+            <input id="Button1" type="submit" style="width:100%;height:100%;margin:10px;font-size:18px;
+                    font-weight:bold;background-color:dodgerblue;color:white" value="Upload All Information"/>
+        </div>
+    </div>
+</form>

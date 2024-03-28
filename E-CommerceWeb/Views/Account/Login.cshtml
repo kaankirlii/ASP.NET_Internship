@@ -1,0 +1,15 @@
+﻿@model E_CommerceWeb.Models.Login
+
+@{
+    Layout = null;
+    ViewBag.Title = "Login";
+}
+<h2>Login</h2>
+@using (Html.BeginForm("Index","Product",FormMethod.Post))
+{           
+    <h4>Username:</h4>
+    <h5>@Html.TextBox("uname","", new { required="required" })</h5>
+    <h4>Password:</h4>
+    <h5>@Html.Password("pass","",new { required ="required" })</h5><br>
+    <input id="Button1" type="submit" name="login" value="Login"/>
+}

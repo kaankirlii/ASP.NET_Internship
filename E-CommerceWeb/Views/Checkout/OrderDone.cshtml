@@ -1,0 +1,23 @@
+﻿@model IEnumerable<E_CommerceWeb.Models.Checkout>
+@{
+    ViewBag.Title = "OrderDone";
+}
+<img src="~/Images/ordersuccessful.png"/>
+<h2>Order is Successful</h2>
+<h4>Order No:</h4><h4>@{Random ra = new Random();
+    int num = ra.Next(1, 1000);
+    var orderNo = num.ToString();
+    }
+    @orderNo
+</h4>
+<table class="table">
+    @foreach (var item in Model)
+    {
+        <tr><td><b>Name and Surname:</b>@Html.DisplayFor(modelItem => item.NameAndSurname)</td>
+        </tr>
+        <tr><td><b>Address Info:</b>@Html.DisplayFor(modelItem => item.AddressInfo)</td></tr>
+        <tr><td><b>Card Info:</b>@Html.Label("################")</td></tr>
+    }
+</table>
+
+

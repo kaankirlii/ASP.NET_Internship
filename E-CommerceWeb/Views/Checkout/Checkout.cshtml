@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Checkout";
+}
+<h2>Checkout</h2>
+<form action="OrderDone" method="post">
+<div>
+    <input id="nameandsurname" name="NameAndSurname" style="width:270px" 
+           placeholder="Name and Surname" required><br/>
+    <textarea id="textaddress" name="AddressInfo" rows="4" 
+           cols="30" style="width:270px" placeholder="Please Enter Address Information" 
+           required></textarea><br>
+    <input id="cardno" name="CardNo" type="number" min="1000000000000000"
+           style="width:270px" 
+           placeholder="Enter your Credit Card number (16 digits):" required><br>
+    <input id="Button1" type="submit" style="width:270px;height:100%;
+           font-size:18px;font-weight:bold;background-color:olive;color:white" 
+           value="Pay and Save Address"/>
+</div>
+</form>

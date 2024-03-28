@@ -1,0 +1,49 @@
+﻿@using E_CommerceWeb.Models
+
+@{
+    ViewBag.Title = "Cart";
+}
+<h2>Cart</h2>
+
+<table cellpadding="2" cellspacing="2" border="1">
+    <tr>
+        <th>Remove</th>
+        <th>Product Id</th>
+        <th>Image</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total Price</th>
+    </tr>
+    @foreach (Item item in (List<Item>)Session["cart"])
+    {
+        <tr>
+            <td>
+            <a href="@Url.Action("RemoveFromCart", "Cart", 
+                    new { id = item.Product.ProductId })"> Remove</a>
+            </td>
+            <td>@item.Product.ProductId</td>
+            <td><img src="~/Images/@item.Product.ProImage" width="90" height="90" /> </td>
+            <td>@item.Product.ProductName</td>
+            <td>@item.Product.Price</td>
+            <td>@item.Quantity</td>
+            <td>@(item.Product.Price * item.Quantity)</td>
+             
+        </tr>
+    }
+    <tr>
+        <td align="right" colspan="6">Sum</td>
+        <td>
+            @{
+                List<Item> cart = (List<Item>)Session["cart"];
+                var SumPrice = cart.Sum(item => item.Product.Price * item.Quantity);
+            }
+            @SumPrice
+        </td>
+     </tr>
+</table>
+
+<a href="@Url.Action("Index", "Product")">Continue Shopping</a><hr>
+<a href="@Url.Action("Checkout", "Checkout")">Go to Checkout</a>
+
+

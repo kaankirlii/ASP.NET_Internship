@@ -1,0 +1,46 @@
+﻿@using E_CommerceWeb.Models
+@{
+    ViewBag.Title = "Product Page";
+}
+
+<style>
+    table {
+        width: 100%;
+    }
+    tr {
+        border: 2px solid green;
+    }
+    th {
+        text-align: center;
+    }
+    td {
+        text-align: center;
+    }
+</style>
+<h2>Welcome User</h2>
+<h2 style="text-align:center">Products:</h2>
+<table cellpadding="2" cellspacing="2" border="1">
+    <tr>
+        <th>Id</th>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Add To Cart</th>
+    </tr>
+    @foreach (Product product in ViewBag.products)
+    {
+        <tr>
+            <td>@product.ProductId</td>
+            <td align="center"><img src="~/Images/@product.ProImage" width="200" height="200" /> </td>
+            <td>@product.ProductName</td>
+            <td>@product.Price</td>
+            <td align="center">
+                <a href="@Url.Action("AddToCart", "Cart", new { id = product.ProductId })">
+                    <i style="width:100px" class="glyphicon glyphicon-shopping-cart"></i>
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+<br>
+<a href="@Url.Action("Logout","Account")">Logout</a>

@@ -1,0 +1,96 @@
+﻿@using E_CommerceWeb.Models
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+    table {
+        width: 100%;
+    }
+
+    tr {
+        border: 2px solid green;
+    }
+
+    th {
+        text-align: center;
+    }
+</style>
+<h2>Welcome User</h2>
+<h2 style="text-align:center">Products:</h2>
+<table class="table-bordered">
+    <tr>
+        <th>
+            <img src="~/Images/lenovoideapad3.jpg" style="width:200px;height:200px"
+                 alt="img" />
+            <h4>@Html.Label("Lenovo Ideapad 3")</h4>
+            <h4>@Html.Label("5200 TRY")</h4>
+            <a href="@Url.Action("Cart","Cart")"><i class="glyphicon glyphicon-shopping-cart"></i></a>
+        </th>
+
+        <th>
+            <img src="~/Images/hp245g8.jpg" style="width:200px;height:200px"
+                 alt="img 2" />
+            <h4>@Html.Label("HP 245 G8 AMD Ryzen 3")</h4>
+            <h4>@Html.Label("3600 TRY")</h4>
+            <a href="@Url.Action("Cart","Cart")"><i class="glyphicon glyphicon-shopping-cart"></i></a>
+        </th>
+        <th>
+            <img src="~/Images/oppoa73.jpg" style="width:200px;height:200px"
+                 alt="img 3" />
+            <h4>@Html.Label("Oppo A73")</h4>
+            <h4>@Html.Label("2660 TRY")</h4>
+            <a href="@Url.Action("Cart","Cart")"><i class="glyphicon glyphicon-shopping-cart"></i></a>
+        </th>
+    </tr>
+</table>
+<table class="table-bordered">
+    <tr>
+        <th>
+            <img src="~/Images/samsunggalaxym12.jpg" style="width:200px;height:200px"
+                 alt="img 4" />
+            <h4>@Html.Label("Samsung Galaxy M12")</h4>
+            <h4>@Html.Label("2500 TRY")</h4>
+            <a href="@Url.Action("Cart","Cart")"><i class="glyphicon glyphicon-shopping-cart"></i></a>
+        </th>
+        <th>
+            <img src="~/Images/huaweiwatchfit.jpg" style="width:200px;height:200px"
+                 alt="img 5" />
+            <h4>@Html.Label("Huawei Watch Fit")</h4>
+            <h4>@Html.Label("702 TRY")</h4>
+            <a href="@Url.Action("Cart","Cart")"><i class="glyphicon glyphicon-shopping-cart"></i></a>
+        </th>
+        <th>
+            <img src="~/Images/huaweiwatchgt2.jpg" style="width:200px;height:200px"
+                 alt="img 6" />
+            <h4>@Html.Label("Huawei Watch GT2")</h4>
+            <h4>@Html.Label("1225 TRY")</h4>
+            <a href="@Url.Action("Cart","Cart")"><i class="glyphicon glyphicon-shopping-cart"></i></a>
+        </th>
+    </tr>
+</table>
+
+<table cellpadding="2" cellspacing="2" border="1">
+    @foreach (Product product in ViewBag.products)
+    {
+        <tr>
+            <th>Id</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Add To Cart</th>
+        </tr>
+        <tr>
+            <td>@product.ProductId</td>
+            <td><img src="~/Images/@product.ProImage" width="60" /> </td>
+            <td>@product.ProductName</td>
+            <td>@product.Price</td>
+            <td align="center">
+                <a href="@Url.Action("Cart", "Cart", new { id = product.ProductId })">Add To Cart</a>
+            </td>
+        </tr>
+    }
+</table>
+<br>
+<a href="@Url.Action("Logout","Account")">Logout</a>
